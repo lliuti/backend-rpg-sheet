@@ -12,6 +12,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+// This is here because I'm not going to implement a database for now.
 const julia = {
     name: 'Isabel Domingues',
     age: 27,
@@ -38,7 +39,6 @@ const julia = {
     stealing: 1,
     listening: 3
 };
-
 const caio = {
     name: 'Lucas Trado',
     age: 23,
@@ -65,7 +65,6 @@ const caio = {
     stealing: 1,
     listening: 2
 }
-
 const rebeca = {
     name: 'Alice Waldorf',
     age: 22,
@@ -92,7 +91,6 @@ const rebeca = {
     stealing: 2,
     listening: 2
 }
-
 const guihard = {
     name: 'Prado Inagawa',
     age: 19,
@@ -123,19 +121,16 @@ const guihard = {
 app.post('/sendpassword', (req, res) => {
     const { password } = req.body;
 
-    if (password === 'jambo123') {
+    if (password === process.env.SENHA_ISA) {
         return res.json(julia);
     }
-
-    if (password === 'babosa45') {
+    if (password === process.env.SENHA_LUCAS) {
         return res.json(caio);
     }
-
-    if (password === 'pitaia00') {
+    if (password === process.env.SENHA_ALICE) {
         return res.json(rebeca);
     }
-
-    if (password === 'tulipa51') {
+    if (password === process.env.SENHA_PRADO) {
         return res.json(guihard);
     }
 
