@@ -146,4 +146,4 @@ app.get('/profile', (req, res) => {
     return res.json({ ok: true });
 });
 
-app.listen(3333);
+app.listen(process.env.PORT || 3333);
